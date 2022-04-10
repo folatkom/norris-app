@@ -9,6 +9,6 @@ import { catchError, retry } from 'rxjs/operators';
 export class ApiService {
   constructor(private http: HttpClient) {}
   public getJoke(): Observable<Joke> {
-    return this.http.get<Joke>('https://norrisapp71.herokuapp.com/joke');
+    return this.http.get<Joke>('https://jokeserver111.herokuapp.com/joke');
   }
 }
