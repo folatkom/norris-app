@@ -1,3 +1,19 @@
-<div *ngIf="joke | async as joke">
-  <p>{{ joke.value }}</p>
-</div>
+<body>
+  <header><h4>Rick&Morty center</h4></header>
+  <nav>
+    <a
+      *ngFor="let season of seasons; let index = index"
+      (click)="chooseSeason(index + 1)"
+      >{{ season }}</a
+    >
+  </nav>
+  <main>
+    <div *ngIf="chosen && episodes | async as episodes; else noepisode">
+      <div class="card" *ngFor="let episode of episodes">
+        {{ episode.name }} - {{ episode.air_date }}
+        <!-- <div *ngFor="let char of episode.characters">{{ char.name }}</div> -->
+      </div>
+    </div>
+    <ng-template #noepisode></ng-template>
+  </main>
+</body>
